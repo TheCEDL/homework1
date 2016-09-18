@@ -20,3 +20,6 @@ Here are some related talks:<br>
 * Kaisheng Yao et al. Depth-Gated LSTM. arXiv15’. 
 * Shuohang Wang et al. Learning Natural Language Inference with LSTM. arXiv15’. 
 * Junyoung Chung et al. Gated Feedback Recurrent Neural Networks. arXiv15’.
+
+# Other
+* Due on Oct. 3rd before class.

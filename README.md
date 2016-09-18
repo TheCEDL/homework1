@@ -1,4 +1,4 @@
-# homework1 - Introduce a New NN with Memory 
+# Homework1 - Introduce a New NN with Memory 
 Please complete each homework for each team, and <br>
 mention who contributed which parts in your report.
 

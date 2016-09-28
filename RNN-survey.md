@@ -7,6 +7,7 @@ Nal Kalchbrenner & Ivo Danihelka & Alex Graves, from Google DeepMind
   - Architecture
   - Experiment
 - Discussion
+- Question
 
 ## Introduction
 - Existing LSTM is made to deal with sequence (1D) data, while grid LSTM is developed to cope with multi-dimensional data (eg. image).
@@ -24,6 +25,12 @@ Nal Kalchbrenner & Ivo Danihelka & Alex Graves, from Google DeepMind
 ### Variant grid LSTM
 - Tied Grid LSTM
 - Use the non-linear function to replace the LSTM connection
+
+## Question?
+-  the advantage of grid lstm?
+-  what's the point that make it better in the experiment?
+-  2d data => apply in image?
+-  multi-dimensional grid lstm => suitable for what?
 
 ## Reference
 - ***[Grid Long Short-Term Memory](https://arxiv.org/abs/1507.01526)***, ICLR 2016

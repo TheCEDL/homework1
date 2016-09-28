@@ -29,7 +29,7 @@ Nal Kalchbrenner & Ivo Danihelka & Alex Graves, from Google DeepMind
 ## Question?
 -  the advantage of grid lstm?
 -  what's the point that make it better in the experiment?
--  2d data => apply in image?
+-  2d data => apply in image? => HOW? Can go to very deep?
 -  multi-dimensional grid lstm => suitable for what?
 
 ## Reference

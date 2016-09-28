@@ -16,12 +16,14 @@ Nal Kalchbrenner & Ivo Danihelka & Alex Graves, from Google DeepMind
 - Stacked LSTM is different from 2d grid LSTM
   - the stacked LSTM units output the same hidden units to the spatial and temporal direction, while the 2d grid LSTM output different hiddene state to these two direction (connect the temporal and spatial information)
 ![](https://github.com/andrewliao11/homework1/blob/master/compare.png?raw=true)
-
 - Multi-dimension LSTM is different from 3d grid LSTM
   - multi-dimensional LSTM just concantenate the N hidden state and the input as H(the input of the cell), which leads to every large LSTM cell as the dimension increase :point_right: the values will grown combinatorially  
-
-- Use the LSTM to connect the different dimension (multi-dimension LSTM use linaer functio, resulting a scalar values)
-- can also use the non-linear function to replace the LSTM connection
+- Grid LSTM
+  - Use the LSTM to connect the different dimension (multi-dimension LSTM use linaer function, resulting a scalar values)
+  - h1,h2,....hN are distinct, m1, m2, ...mN as well.
+### Variant grid LSTM
+- Tied Grid LSTM
+- Use the non-linear function to replace the LSTM connection
 
 ## Reference
 - ***[Grid Long Short-Term Memory](https://arxiv.org/abs/1507.01526)***, ICLR 2016

@@ -12,6 +12,8 @@ Nal Kalchbrenner & Ivo Danihelka & Alex Graves, from Google DeepMind
 ## Introduction
 - Existing LSTM is made to deal with sequence (1D) data, while grid LSTM is developed to cope with multi-dimensional data (eg. image).
 - Motivation: LSTM is able to capture longer memory than RNN, which deal with the gradient vanishing problem. Deep network also has the gradient vanishing problem, can generalize LSTM solve it?
+- Change the way LSTM communicate with each others
+- Can be applied to feed-forward network or recurrent neural network
 
 ## Discussion
 - Stacked LSTM is different from 2d grid LSTM
@@ -31,6 +33,7 @@ Nal Kalchbrenner & Ivo Danihelka & Alex Graves, from Google DeepMind
 -  what's the point that make it better in the experiment?
 -  2d data => apply in image? => HOW? Can go to very deep?
 -  multi-dimensional grid lstm => suitable for what?
+- 1D grid LSTM -> activation func?
 
 ## Reference
 - ***[Grid Long Short-Term Memory](https://arxiv.org/abs/1507.01526)***, ICLR 2016

@@ -20,4 +20,16 @@ Furthermore, NTM is a neural network with memory. NTM has a explicitly-defined m
 </p>
 <p align="center"><img src="img/read_vector.png"></p>
 <p>then rt is data we get.</p>
+
 ###Write
+<p>
+When we want to write data into memory, we split writing into two parts: erase and add operation. First, we will erase data in memory with an erase vector et:
+</p>
+<p align="center"><img src="img/erase_vector.png"></p>
+<p>
+Mt bar is the erased memory based value and we will add it by an add vector:
+</p>
+<p align="center"><img src="img/add_vector.png"></img></p>
+<p>
+The Mt will be the final value stored into memory.
+</p>

@@ -23,8 +23,11 @@ To go deeper into LSTM cell, let's talk about the multi-dimensional LSTM. The mu
 ![](https://github.com/andrewliao11/homework1/blob/master/multi-dimensional.png?raw=true)   
 This has a problem that the input dimension and the memory cell will grow combinatorially as the dimension(***N***) increase.
 
-- Existing LSTM is made to deal with sequence (1D) data, while grid LSTM is developed to cope with multi-dimensional data (eg. image).
-- Motivation: LSTM is able to capture longer memory than RNN, which deal with the gradient vanishing problem. Deep network also has the gradient vanishing problem, can generalize LSTM solve it?
+### Motivation
+LSTM is made to mitigate the gradient vanishing problem and is able to capture the long-term memory well. When dealing with computer vision problem, we might want to build a super deep neural network, while evenetually get a poor performance due to the gradient vanishing problem. So, it it possible for us to use the LSTM to mitigate this problem as well?
+
+------------------------------------------------------------------------------------------
+
 - Change the way LSTM communicate with each others
 - Can be applied to feed-forward network or recurrent neural network
 

@@ -13,8 +13,11 @@ Furthermore, NTM is a neural network with memory. NTM has a explicitly-defined m
 ##Read/Write Operation
 ###Read
 <p>With normalized weighting vector Wt, we will get</p>
-<p center="align">
+<p align="center">
 <img src="img/normalized_weight_vector.png"></img>
 </p>
-
+<p>If we have a row vector Mt in memory, then the read vector rt will be we define the read vector by multipliation with weighting vector and memory vector:
+</p>
+<p align="center"><img src="img/read_vector.png"></p>
+<p>then rt is data we get.</p>
 ###Write

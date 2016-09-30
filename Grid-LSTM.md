@@ -16,15 +16,17 @@ Grid LSTM is a variant of LSTM cell, so it's good for us to revisit the LSTM cel
 Vanilla RNN is known to suffer gradient vanishing promblem and LSTM is one of the RNN cell that created to mitigate this problem. LSTM cantains content, updata, forget, output gates, which is formed with some non-linear functions, such as sigmoid and tanh. **Capturing long-term memory** is the most significant property for LSTM.   
 The following figure is the illustration of LSTM, from [colah's blog](http://colah.github.io/posts/2015-08-Understanding-LSTMs/):   
 ![](https://github.com/andrewliao11/homework1/blob/master/lstm.png?raw=true)   
+Why it can capture or retain the memory? The point is the **gate** mechanism. From the formula of LSTM, it's clear that it let the LSTM cell learn to retain/forget the memory and the output gate control how much the the memory will contribut the output signal. The following figure is the illustration of LSTM cell:
+![](https://github.com/andrewliao11/homework1/blob/master/lstm-formula.png?raw=true)   
 The standard LSTM can be also illustrated in another style (in Grid-LSTM paper), and when you stack LSTM cell together, it become stacked LSTM:   
 ![](https://github.com/andrewliao11/homework1/blob/master/stacked-lstm.png?raw=true)
-The stacked lstm is somewhat like the 2d grid lstm in the next part, but note that the stacked lstm is **just** the LSTM stacking together. Each LSTM cell remains the same with only one memory, one hidden state.
+The stacked lstm is somewhat like the 2d grid lstm in the next part, but note that the stacked lstm is **just** the LSTM stacking together. Each LSTM cell remains the same with **only one memory, one hidden state**.
 To go deeper into LSTM cell, let's talk about the multi-dimensional LSTM. The multi-dimensional LSTM is easy to understand: each LSTM cell will get the input and the hidden states from multiple dimension(***N***), and concatenate them together as ***H***. The cell will update the memory cell conditional on multiple memory cells from differnet dimension (***H***) and the formula is look like this:   
 ![](https://github.com/andrewliao11/homework1/blob/master/multi-dimensional.png?raw=true)   
 This has a problem that the input dimension and the memory cell will grow combinatorially as the dimension(***N***) increase.
 
 ### Motivation
-LSTM is made to mitigate the gradient vanishing problem and is able to capture the long-term memory well. When dealing with computer vision problem, we might want to build a super deep neural network, while evenetually get a poor performance due to the gradient vanishing problem. So, it it possible for us to use the LSTM to mitigate this problem as well?
+LSTM is made to mitigate the gradient vanishing problem and is able to capture the long-term memory well. When dealing with computer vision problem, we might want to build a super deep neural network, while evenetually get a poor performance due to the gradient vanishing problem. So, is it possible for us to use the LSTM to mitigate this problem as well?
 
 ------------------------------------------------------------------------------------------
 

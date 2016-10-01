@@ -62,11 +62,34 @@ similarity(like vector inner product):
 This part can be viewed as producing a probabilty distribution of whether kt would be in certain location.  The effect
 of scalar ßt is illustrated in the picture below:
 </p>
+<p align="center"><img src="img/beta_t.jpeg"></p>
+##Interpolation
+<p>
+Take the weight of current time step(produced by content addressing part) and the weight of previous time step as inpu
+t, we perform interpolation based on the scalar gt(interpolation gate):
+</p>
 <p align="center"><img src="img/gate_interpolation.png"></p>
 <p align="center"><img src="img/interpo.png"></p>
+##Convolutional Shift
+<p>
+In previous part, we focused more on content based addressing. If gt  is relatively samll, the effect of weight produc
+ed in current time step has less influence. Thus we can view this part as performing location based addressing.
+<br>Take st vector produced by controller as input, it performs circular convolution on the weight sent from 
+interpolation part:
+</p>
+<p align="center"><img src="img/convolutional_shift.png"></p>
+<p align="center"><img src="img/shift.png"></p>
+##Sharpening
+<p>
+After convolutional shift part, the probability distribution is changed again. As a result, in the last part, we 
+should adjust the the final result by sharpening
+</p>
+<p align="center"><img src="img/sharpening.png"></p>
+<p align="center"><img src="img/gama.png"></p>
+
 ##Controller
 <p>
-ontroller is a neural network which will generate the representation that is used by read and write heads. Controller can be either a feed-foward network or a RNN.
+Controller is a neural network which will generate the representation that is used by read and write heads. Controller can be either a feed-foward network or a RNN.
 </p>
 ###Type1, Feed-Forward
 <p align="center"><img src="img/flow1.png"></p>

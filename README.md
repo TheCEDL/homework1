@@ -1,6 +1,9 @@
-# Homework1 - Introduce a New NN with Memory 
-Please complete each homework for each team, and <br>
-mention who contributed which parts in your report.
+# CEDL Homework1 - Introduce a New NN with Memory 
+
+## Paper Title
+**Gated Feedback Recurrent Neural Networks** <br>
+https://arxiv.org/pdf/1502.02367v4.pdf
+
 
 # Motivation
 NN with Memory can potentially to be used to acompplish many AI related tasks: Reasoning, Decision Making, etc. <br>

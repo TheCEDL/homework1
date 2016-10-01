@@ -4,25 +4,23 @@
 **Gated Feedback Recurrent Neural Networks** <br>
 https://arxiv.org/pdf/1502.02367v4.pdf
 
+## Paper Summary
+Recurrent Neural Networks (RNN) 已經被廣泛運用在sequence model相關的研究上，特別是輸入、輸出長短不一的任務，但隨著資料長度變長，RNN並不太能處理long-term dependency的問題，因此發展出gated activation function: Long Short-Term Memory (LSTM) 和 Gated Recurrent Unit (GRU)，可以處理long-term dependency和short-term dependency等問題。
+	本篇論文為RNN發展出新的設計Gated-feedback RNN (GF-RNN)，使用在stack RNN上面可以連接先前N個hidden state而不是只有1個。
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  在language modeling以及python program evaluation的實驗結果裡證明了改良後的GF-RNN可以獲得較佳的成果。
+	
 
-# Motivation
-NN with Memory can potentially to be used to acompplish many AI related tasks: Reasoning, Decision Making, etc. <br>
-Here are some related talks:<br>
-* Sumit Chopra from Facebook. Reasoning, Attention and Memory <a href="https://drive.google.com/open?id=0B_wzP_JlVFcKbHdpYVdZMjg3eTBQd2F1OG9QZlVhOGJoX0dz">slides</a>
-* Edward Grefenstette from Google DeepMind. Beyond Seq2Seq with Augmented RNNs  <a href="https://drive.google.com/open?id=0B_wzP_JlVFcKYTFaTVFJN18tbmtkX2V0WEEtWXVSdDV4UHVZ">slides</a>
 
-# To-Do
-* [+10] Please find a recent paper (2014-2015) which introduced a NN with memory.
-* [+50] Write a report to briefly introduce the paper;
-* [+40] then, focus on discussing the unique properties of the new NN and where it can be applied to take advantage of the properties.
 
-# Candidates
-* Search RNN on Arxiv-sanity <a href="http://www.arxiv-sanity.com/search?q=rnn">link</a>
-* Jianpeng Cheng et al. Long Short-Term Memory-Networks for Machine Reading. arXiv16’. 
-* Nal Kalchbrenner et al. Grid Long Short-Term Memory. arXiv16’. (From DeepMind, Alex)
-* Kaisheng Yao et al. Depth-Gated LSTM. arXiv15’. 
-* Shuohang Wang et al. Learning Natural Language Inference with LSTM. arXiv15’. 
-* Junyoung Chung et al. Gated Feedback Recurrent Neural Networks. arXiv15’.
 
-# Other
-* Due on Oct. 3rd before class.
+

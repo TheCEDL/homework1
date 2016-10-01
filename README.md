@@ -33,3 +33,12 @@ Mt bar is the erased memory based value and we will add it by an add vector:
 <p>
 The Mt will be the final value stored into memory.
 </p>
+
+##Controller
+<p>
+ontroller is a neural network which will generate the representation that is used by read and write heads. Controller can be either a feed-foward network or a RNN.
+</p>
+###Type1, Feed-Forward
+<p align="center"><img src="img/flow1.png"></img></p>
+###Type2, RNN(LSTM)
+<p align="center"><img src="img/flow2.png"></img></p>

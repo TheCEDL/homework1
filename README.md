@@ -44,11 +44,11 @@ GF-RNN也新增了global reset gate來控制全連接的強度，不只有前一
   
 給最左邊的程式作為Seed，然後預測輸出接下來的部分，GF-RNN在這部分也輸出了正確的程式語法。
 
-  <img src=/image/9.PNG width=400 />
+  <img src=/image/9.PNG width=800 />
   
 為求得更好的精確度，這裡使用了更多的層(五層)，每一層皆有700個LSTM Units，效果比之前的更佳。
  
-  <img src=/image/10.PNG width=500 />
+  <img src=/image/10.PNG width=300 />
   
 使用熱度圖來看，發現當nesting與target length越大的時候accuray會逐漸下降，而圖(6-c)比較了使用gated feedback前後的正確率差距，也明顯看到使用gated feedbacck後正確率明顯提高了。
 

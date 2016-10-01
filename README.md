@@ -44,7 +44,7 @@ GF-RNN也新增了global reset gate來控制全連接的強度，不只有前一
   
 給最左邊的程式作為Seed，然後預測輸出接下來的部分，GF-RNN在這部分也輸出了正確的程式語法。
 
-  <img src=/image/9.png width=500 />
+  <img src=/image/9.png width=400 />
   
 為求得更好的精確度，這裡使用了更多的層(五層)，每一層皆有700個LSTM Units，效果比之前的更佳。
  

@@ -76,9 +76,9 @@ DIFFERENT IMPLEMENTATIONS OF CLSTM (BEST RESULTS IN BOLD).
 
 本篇提出一個CRNN model來提升特徵擷取的方法，利用額外的temporal structure以window frame-by-frame的方式輸入到recurrent layer之中，而recurrent layer的 hidden states 或 outputs states，以及在LSTM架構之下的cell states被用來提取window之中的簡化特徵，再分類的結果與傳統CNN相比來的更好。
 
-### the unique properties of the new NN and where it can be applied to take advantage of the properties.
+### The unique properties of the new NN and where it can be applied to take advantage of the properties.
 
-此篇論文提出的新的神經網路主要利用convolutional window的方法擷取feature之外，並利用有memory 的RNN附加記憶能力來產生簡化特徵，因此這篇文章的特點為對傳統CNN將輸入特徵提取方法做沿用並加入記憶效應在產生特徵的過程，可以視為是將傳統CNN提取特徵的方法做改良，優點在於記憶能力可以對於輸入frame之間的前後關係去做特徵的學習。
+此篇論文提出的新的神經網路主要利用convolutional window的方法擷取feature之外，並利用有memory的RNN附加記憶能力來產生簡化特徵，因此這篇文章的特點為對傳統CNN將輸入特徵提取方法做沿用並加入記憶效應在產生特徵的過程，可以視為是將傳統CNN提取特徵的方法做改良，優點在於記憶能力可以對於輸入frame之間的前後關係去做特徵的學習。
 
 ## Participation
 | Name | Do |

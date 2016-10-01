@@ -58,7 +58,12 @@ In Neural Turing Machine, it combined two types of addressing machanism to produ
 similarity(like vector inner product):
 </p>
 <p align="center"><img src="img/cosine.png"></p>
-
+<p>
+This part can be viewed as producing a probabilty distribution of whether kt would be in certain location.  The effect
+of scalar ßt is illustrated in the picture below:
+</p>
+<p align="center"><img src="img/gate_interpolation.png"></p>
+<p align="center"><img src="img/interpo.png"></p>
 ##Controller
 <p>
 ontroller is a neural network which will generate the representation that is used by read and write heads. Controller can be either a feed-foward network or a RNN.

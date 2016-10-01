@@ -22,7 +22,7 @@ GF-RNN也新增了global reset gate來控制全連接的強度，不只有前一
   <img src=/image/5.png width=700 />
 
 ## Experiment Discusion
-### 1. LANGUAGE MODELING
+### 1. Language Modeling
 使用在language model上面的話，作者會比tanh、GRU以及LSTM分別作用在參數量相近Single、Stacked、Gated Feedback上面的結果，Gated Feedback L是指取和Stacked相同的層數和Unit數，所以參數量比較多。
 
   <img src=/image/6.png width=700 />
@@ -39,7 +39,7 @@ GF-RNN也新增了global reset gate來控制全連接的強度，不只有前一
 
 
   
-### 2. PYTHON PROGRAM EVALUATION
+### 2. Python Program Evaluation
   
 給最左邊的程式作為Seed，然後預測輸出接下來的部分，GF-RNN在這部分也輸出了正確的程式語法。
 
@@ -56,15 +56,19 @@ GF-RNN也新增了global reset gate來控制全連接的強度，不只有前一
 
 ### The unique properties of the new NN and where it can be applied to take advantage of the properties.
 
+Gated feedback使用在Stacked LSTM以及GRU上面，的確提高了正確率，讓結果變得更好。global reset gate則是控制前層資訊的強度，因為這些資訊對於下個時間點可能無關或影響很大，所以加入gate來限制他們，經由作者的實驗也可知，使用了global reset gate比沒使用時效果更好。另外，加入了全連接後，參數量勢必大增，但實驗也顯示，應用了GF-RNN的結果和一般堆疊的GRU和LSTM比較下，相近參數的架構，及相同層數而且相同Unit數的架構，其收斂速度並沒有比較慢，甚至結果還更好，由此可知GF-RNN雖然參數量多，但訓練的過程快，代表參考了更多的資訊後，參數更新的方向可能也比較明確。
+
+本篇論文本身即是提出一個很容易應用及加入的方法。一些像是QA方面的work，在問題也就是句子部分的feature，有時候使用CNN的表現比LSTM好，或許應用了堆疊的LSTM，並全連接不同時間的Unit後，能取出更好的特徵，也就是本篇論文的做法，在處理language model的問題或其他序列性的資料的問題時，能帶來更好的效果。目前deep learning深受世人的重視，而有蓬勃的發展，並持續改良現有的架構，試著讓deep learning更接近人腦，也期望未來會有更多良好的架構與機制被發展出來，讓我們真正迎向AI的未來。
+
+
+## Participation
+| Name | Do |
+| :---: | :---: |
+| 張哲嘉 | 尋找論文、簡介、合併|
+| 林暘竣 | 尋找論文、特點、排版|
 
   
   
-  
-  
-  
-  
-  
-  在language modeling以及python program evaluation的實驗結果裡證明了改良後的GF-RNN可以獲得較佳的成果。
 	
 
 

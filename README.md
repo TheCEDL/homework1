@@ -1,29 +1,32 @@
 # CEDL - Homework1 
+Introduce a New NN with Memory
 ## Paper Title
 **Convolutional RNN: an Enhanced Model for Extracting Features from Sequential Data** <br>
 from [arXiv:1602.05875] ( https://arxiv.org/abs/1602.05875 )
 
 ## Paper Summary
-此篇論文主要提出以convolution方式對輸入的sequence data提取特徵，並結合RNN/LSTM/BLSTM新的網路架構來簡化特徵，主要實作動機為傳統CNN對於使用Window (或稱作kernel)來提取特徵時只能處理較少的sequence data，並且無法記憶過去或未來的sequence data資訊，因此希望藉由結合RNN/LSTM/BLSTM具有記憶性的架構來壓縮sequence data短時間或長時間有用的資訊，來提取更有用和簡短的特徵
- 
-(另外，傳統CNN會藉由使用多層convolutional layer的計算架構來提取更好的representation，然而後一層的輸入為將前一層的不同sequence data做混和可能會造成我們不想要的提取特徵結果)
+此篇論文提出了 Convolutional RNN 的方式，用於提取批次的 sequence data 特徵之應用，主要實作動機為傳統 CNN 作法是利用 affine function 接上non-linearity 來提取特徵（ 下方表格，左 ），而這樣的處理較為簡易，無法駕馭sequence data中過去或未來之時域資訊，因此作者希望利用 RNN/ LSTM/ BLSTM 來強化其網路架構（ 下方表格，左 ），如此能夠提取出較傳統CNN作法有價值的特徵。
+
+>以下示意圖將每個frame資料視為一維向量，而每次處理完window（圖例window size為五個frame）<br>中的frame後，stride指定frame數並產生對應的一維向量輸出 
 
 | Standard Convolutional Layer | CRNN Layer |
 | :---: | :---: |
 |<img src=/image/1.jpg width=500 />|<img src=/image/2.jpg width=440 />|
+|利用多個weight matrix對每個window作element-wise的乘法，<br>然後將輸出之個別矩陣的所有element加總，最後將個別的結果<br>combine起來加上bias產生輸出。|將window之中每個frame資料，分別丟入RNN最為輸<br>入，最後再經過不同的pooling機制，產生出對應輸出<br>PS： 將RNN改為LSTM/BLSTM即為CLSTM/CBLSTM。|
 
-首先在影片的sample中，對每一個sample裡的每一個不同時間點的frame取one-dimensional的特徵，如下圖所示，圖片以每一個frame提取5擺1的維度做舉例，其後會使用一定時間寬度的time Window將框選到的one-dimensional的特徵輸入到RNN或是LSTM或是BLSTM之中並每次移動兩個frame來移動time Window的位置
+關於CLSTM及CBLSTM中的數學細節如下：
+
+
+論文中也提出了CLSTM額外延伸架構稱為Extended CLSTM，不同之處在於，一般的LSTM使用相同之weight matrices來處理每個frame資料，而Extended CLSTM則是對不同position的frame皆採去特定weight matrices作為處理，作者認為這樣便可以加強特定層次資訊的學習。
  
-在RNN/LSTM/BLSTM的架構之中會將time Window所框選到的個別輸入輸入到RNN/LSTM/BLSTM裏面，計算出在hidden states的one-dimensional 特徵結果，對每個結果做max、mean或取以sequence的last element作為最後簡化特徵的結果，另外作者也試著在LSTM/BLSTM以output或是cell states的one-dimensional 特徵結果做一樣的處理來得到簡化解果。
- 
-(至於論文做了整個架構額外的延伸稱為Extended CLSTM，在一開始的LSTM參數所有參數都是一樣的並作複製，但他主要希望LSTM的不同 layer可以利用在time window每一個frame的不同位置(不同時間點)作為額外的資訊，來做不同的初始化及更新。)
- 
-而在實驗之中其架構主要在語音辨識的分類應用之上
+而在實驗之中作者將此架構應用於語音辨識的分類上，並都得到了效能上的進步。
 
 ## Discusion
+
+
 ## Participation
 | Name | Do |
-| :--- | :--- |
-| 郭士均 | 撰寫主體 |
-| 黃冠諭 | 修改內文、排版 |
-| 蘇翁台 | ~ |
+| :---: | :---: |
+| 郭士鈞 | 撰寫主體 |
+| 黃冠諭 | 修改內容細節、排版 |
+| 蘇翁台 | 修改內容細節 |

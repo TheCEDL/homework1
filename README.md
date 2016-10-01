@@ -51,6 +51,12 @@ matters. Thus, similarity is of no use here.<br><br>
 In Neural Turing Machine, it combined two types of addressing machanism to produce the weighting vector. The system flow diagram:
 </p>
 <p align="center"><img src="img/Flow_diagram.png"></p>
+###Content Addressing
+<p>In content addressing, we compare the output vector of controller with all the vectors stored in the memory.</p>
+<p align="center"><img src="img/similarity_comparison.png"></p>
+<p>kt is the output vector, ßt is a scalar deciding the precision of the focus, and K is the function producing cosine
+similarity(like vector inner product):</p>
+<p align="center"><img src="img/cosine.png"></p>
 
 ##Controller
 <p>

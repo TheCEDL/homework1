@@ -1,7 +1,7 @@
 #Neural Turing Machine
 ##Introduction and Overall Architecture
 <p>
-Neural Turing Machines (NTM) can be basically viewed as a machine with simple regular computer architecture, which consists of a controller, memory, and read/write heads, shown as below. The controller, which is made out of neural network (LSTM and feedforward network), makes decisions, takes actions and outputs depending on external input and information read from memory. Meanwhile, parameters of read/write heads and contents stored in memory are updated according to controller decisions.
+<a href="https://arxiv.org/abs/1410.5401">Neural Turing Machines (NTM)</a> can be basically viewed as a machine with simple regular computer architecture, which consists of a controller, memory, and read/write heads, shown as below. The controller, which is made out of neural network (LSTM and feedforward network), makes decisions, takes actions and outputs depending on external input and information read from memory. Meanwhile, parameters of read/write heads and contents stored in memory are updated according to controller decisions.
 </p>
 <p align="center">
   <img src="img/neuralturing.png">

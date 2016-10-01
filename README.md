@@ -14,7 +14,8 @@ from [arXiv:1602.05875] ( https://arxiv.org/abs/1602.05875 )
 |<img src=/image/1.jpg width=500 />|<img src=/image/2.jpg width=440 />|
 |利用多個weight matrix對每個window作element-wise的乘法，<br>然後將輸出之個別矩陣的所有element加總，最後將個別的結果<br>combine起來加上bias產生輸出。|將window之中每個frame資料，分別丟入RNN最為輸<br>入，最後再經過不同的pooling機制，產生出對應輸出<br>PS： 將RNN改為LSTM/BLSTM即為CLSTM/CBLSTM。|
 
-關於 CRNN/CLSTM/CBLSTM 中的數學細節如下：
+**關於 CRNN/CLSTM/CBLSTM 中的數學細節如下：**
+
 
 CRNN當中的hidden states以及 outputs定義如同傳統RNN，σ採用sigmoid function。
 > <img src=/image/math12.jpg width=400 />

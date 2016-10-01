@@ -9,7 +9,7 @@ Recurrent Neural Networks (RNN) 已經被廣泛運用在sequence model相關的�
 	本篇論文為RNN發展出新的設計Gated-feedback RNN (GF-RNN)，使用在stack RNN上面可以連接前一個時間點的N個hidden state而不是只有1個，也就是可以讓上層的資訊也能回留給低層，因此每個Unit則會得到前一個時間點所有層的Unit的資訊，如下圖所示。
 	
   
-  
+  |<img src=/image/2.jpg width=440 />|
   
   
   

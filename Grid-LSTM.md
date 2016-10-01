@@ -38,7 +38,13 @@ Unlike the multidimensional case, the block outputs N hidden vectors h1 , ..., h
 
 <p align="center"><img src="https://github.com/andrewliao11/homework1/blob/master/arc1.png?raw=true" /></p>
 
+Note how the vector H that contains all the input hidden vectors is shared across the transforms, whereas the input memory vectors affect the N-way interaction but are not directly combined.
+
+<p align="center"><img src="https://github.com/andrewliao11/homework1/blob/master/glstm.png?raw=true" /></p>
+
 Beware that each transform has distinct weight matrices, so the paramaters will increase significantly. So they also proposed weight sharing mechanism, Sharing of weight matrices can be specified along any dimension in a Grid LSTM and it can be useful to induce invariance in the computation along that dimension. If the weights are shared along all dimensions including the depth, we refer to the model as a **Tied N-LSTM**
+
+
 
 ## Discussion
 
@@ -50,13 +56,18 @@ Beware that each transform has distinct weight matrices, so the paramaters will 
 - Grid LSTM
   - Use the LSTM to connect the different dimension (multi-dimension LSTM use linaer function, resulting a scalar values)
   - h1,h2,....hN are distinct, m1, m2, ...mN as well.
+  
 ### Variant grid LSTM
 - Tied Grid LSTM
 - Use the non-linear function to replace the LSTM connection
 
 ## Question?
 -  the advantage of grid lstm?
+It's powerful and flexible, various branch of grid lstm can reach the state-of-the-art performance.
+
 -  what's the point that make it better in the experiment?
+One may says that grid lstm simply increase the paramaters, so the performance increases due to larger model. However compare to stack LSTM and multi-dimensional LSTM, grid LSTM reach better performce. One of the possible reason is that grid LSTM enable informations from different dimensioin interact with each other in an efficient way.
+
 -  2d data => apply in image? => HOW? Can go to very deep?
 -  multi-dimensional grid lstm => suitable for what?
 - 1D grid LSTM -> activation func?

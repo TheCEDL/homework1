@@ -43,8 +43,8 @@ FAU Aibo Emotion Corpus這個資料集主要紀錄小孩子和Sony’s pet robot
 
 測試結果：
 
-RESULTS ON EMOTION CLASSIFICATION TASK (BEST RESULTS IN BOLD)
-<img src=/image/table1.jpg width=500 />
+> RESULTS ON EMOTION CLASSIFICATION TASK (BEST RESULTS IN BOLD)
+> <img src=/image/table1.jpg width=500 />
 
 CLSTM和Extended CLSTM的分類結果比以前再這個資料庫上最好的傳統方法和一般的CNN分類結果都還要好
 
@@ -54,11 +54,11 @@ The aGender corpus包含了個重年齡層及性別的語音資料，資料集�
 
 測試結果：
 
-RESULTS ON GENDER CLASSIFICATION (BEST RESULTS IN BOLD)
-<img src=/image/table2.jpg width=500 />
+> RESULTS ON GENDER CLASSIFICATION (BEST RESULTS IN BOLD)
+> <img src=/image/table2.jpg width=500 />
 
-RESULTS ON AGE CLASSIFICATION (BEST RESULTS IN BOLD)
-<img src=/image/table3.jpg width=500 />
+> RESULTS ON AGE CLASSIFICATION (BEST RESULTS IN BOLD)
+> <img src=/image/table3.jpg width=500 />
 
 一樣這篇文章的分類結果比以前的傳統方法和一般的CNN分類結果都還要好，尤其是CBLSTM表現更為出色。
 

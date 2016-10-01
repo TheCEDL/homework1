@@ -17,7 +17,9 @@ GF-RNN也新增了global reset gate來控制全連接的強度，不只有前一
   
 其中將global reset gate加入stacked RNN (LSTM、GRU)的方法分別如下
 
-  <img src=/image/3.png width=500 />
+  <img src=/image/3.png width=700 />
+  <img src=/image/4.png width=700 />
+  <img src=/image/5.png width=700 />
 
 
 

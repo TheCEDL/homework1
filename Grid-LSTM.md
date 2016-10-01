@@ -33,6 +33,13 @@ LSTM is made to mitigate the gradient vanishing problem and is able to capture t
 - Change the way LSTM communicate with each others
 - Can be applied to feed-forward network or recurrent neural network
 
+### Architecture
+Unlike the multidimensional case, the block outputs N hidden vectors h1 , ..., hN and N memory vectors m1 , ..., mN that are all distinct. So eventually there will be N transforms LSTM, one for each dimension.
+
+<p align="center"><img src="https://github.com/andrewliao11/homework1/blob/master/arc1.png?raw=true" /></p>
+
+Beware that each transform has distinct weight matrices, so the paramaters will increase significantly. So they also proposed weight sharing mechanism, Sharing of weight matrices can be specified along any dimension in a Grid LSTM and it can be useful to induce invariance in the computation along that dimension. If the weights are shared along all dimensions including the depth, we refer to the model as a **Tied N-LSTM**
+
 ## Discussion
 
 - Stacked LSTM is different from 2d grid LSTM

@@ -1,4 +1,19 @@
-# Homework1 - Introduce a New NN with Memory 
+# CEDL - Homework1 
+## Paper Title
+ **Convolutional RNN: an Enhanced Model for Extracting Features from Sequential Data** <br>
+>>from [arXiv:1602.05875] ( https://arxiv.org/abs/1602.05875 )
+
+## Introduction
+## Discusion
+## Participation
+>>| Name | Do |
+| :--- | :--- |
+| 郭士均 | ~ |
+| 黃冠諭 | ~ |
+| 蘇翁台 | ~ |
+
+
+
 Please complete each homework for each team, and <br>
 mention who contributed which parts in your report.
 

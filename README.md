@@ -63,14 +63,14 @@ This part can be viewed as producing a probabilty distribution of whether kt wou
 of scalar ßt is illustrated in the picture below:
 </p>
 <p align="center"><img src="img/beta_t.jpeg"></p>
-##Interpolation
+###Interpolation
 <p>
 Take the weight of current time step(produced by content addressing part) and the weight of previous time step as inpu
 t, we perform interpolation based on the scalar gt(interpolation gate):
 </p>
 <p align="center"><img src="img/gate_interpolation.png"></p>
 <p align="center"><img src="img/interpo.png"></p>
-##Convolutional Shift
+###Convolutional Shift
 <p>
 In previous part, we focused more on content based addressing. If gt  is relatively samll, the effect of weight produc
 ed in current time step has less influence. Thus we can view this part as performing location based addressing.
@@ -79,7 +79,7 @@ interpolation part:
 </p>
 <p align="center"><img src="img/convolutional_shift.png"></p>
 <p align="center"><img src="img/shift.png"></p>
-##Sharpening
+###Sharpening
 <p>
 After convolutional shift part, the probability distribution is changed again. As a result, in the last part, we 
 should adjust the the final result by sharpening

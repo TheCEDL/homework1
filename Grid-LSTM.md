@@ -62,15 +62,22 @@ Beware that each transform has distinct weight matrices, so the paramaters will 
 - Use the non-linear function to replace the LSTM connection
 
 ## Question?
--  the advantage of grid lstm?
+-  ***the advantage of grid lstm?***    
 It's powerful and flexible, various branch of grid lstm can reach the state-of-the-art performance.
 
--  what's the point that make it better in the experiment?
+-  ***what's the point that make it better in the experiment?***    
 One may says that grid lstm simply increase the paramaters, so the performance increases due to larger model. However compare to stack LSTM and multi-dimensional LSTM, grid LSTM reach better performce. One of the possible reason is that grid LSTM enable informations from different dimensioin interact with each other in an efficient way.
+
+-  ***1D grid LSTM -> activation func?***    
+For a 1D grid LSTM, it's just a vector in vector out process. We can somehow treat it as a complec activation function. Closely observe the following equations, we can see that **m** is the one who control the flow of a signal, which can be seen as the switch of the activation function   
+
+<p align="center"><img src="https://github.com/andrewliao11/homework1/blob/master/mh.png?raw=true" width="250"> </p>  
+
+  
 
 -  2d data => apply in image? => HOW? Can go to very deep?
 -  multi-dimensional grid lstm => suitable for what?
-- 1D grid LSTM -> activation func?
+
 
 ## Reference
 - ***[Grid Long Short-Term Memory](https://arxiv.org/abs/1507.01526)***, ICLR 2016

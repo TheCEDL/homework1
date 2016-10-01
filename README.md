@@ -12,7 +12,16 @@ Recurrent Neural Networks (RNN) 已經被廣泛運用在sequence model相關的�
   <img src=/image/1.png width=800 />
   
 GF-RNN也新增了global reset gate來控制全連接的強度，不只有前一時間點的一個state會影響global reset gate，而是前一時間許多層的statet可以影響global reset gate，其數學式為
-  <img src=/image/2.png width=300 />
+
+  <img src=/image/2.png width=500 />
+  
+其中將global reset gate加入stacked RNN (LSTM、GRU)的方法分別如下
+
+  <img src=/image/3.png width=500 />
+
+
+
+
   
   
   

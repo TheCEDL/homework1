@@ -21,6 +21,8 @@ GF-RNN也新增了global reset gate來控制全連接的強度，不只有前一
   <img src=/image/4.png width=700 />
   <img src=/image/5.png width=700 />
 
+## Experiment Discusion
+### 
 
 
 

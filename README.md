@@ -99,16 +99,20 @@ Controller is a neural network which will generate the representation that is us
 ##Property and Application
 ###Property
 <ul>
-<li><strong>GG</strong></li>
+<li><strong>Flexibility</strong></li>
 <p>
-TEST
+Since neural turing machine can learns general concepts and algorithms, we can feed input output pair associated with a variety of tasks as long as the controller architecture contain sufficient computational capability over certain algorithm or concepts.
 </p>
-<li><strong>AAA</strong></li>
+<li><strong>External Memory</strong></li>
 <p>
-ddf
+Unlike LSTM, whose memory is distributedly stored in each LSTM cell, neural turing machine seperates memory from controller and thus centralizes management over memory. This design benifits longer term memory and faster training.
 </p>
 </ul>
-
+###Usage
+<ul>
+<ol>GG</ol>
+<ol>YY</ol>
+</ul>
 
 
 

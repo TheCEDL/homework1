@@ -14,7 +14,7 @@ link: [[paper](http://arxiv.org/abs/1503.08895)] [[code](https://github.com/face
 * The model writes all x to the memory up to a fixed buffer size, and then finds a continuous representation for the x and q.
 
 ## Model
-![](https://github.com/gina9726/homework1/images/QA-single%20layer.png)
+![](https://github.com/gina9726/homework1/blob/master/images/QA-single%20layer.png)
 * Single layer
     * Input memory representation
         - The entire set of {xi} are converted into memory vectors {mi} of dimension d computed by embedding each xi in a continuous space, using embedding matrix A of size V*d. 
@@ -24,13 +24,13 @@ link: [[paper](http://arxiv.org/abs/1503.08895)] [[code](https://github.com/face
         - Each xi has a corresponding output vector ci, using embedding matrix C with the same size as A and B.
         - The response vector from the memory o is then a sum over the transformed inputs ci, weighted by the probability vector from the input: o = sum(pi*ci)
 
-![](https://github.com/gina9726/homework1/images/QA-multiple%20layer.png)
+![](https://github.com/gina9726/homework1/blob/master/images/QA-multiple%20layer.png)
 * Multiple layers (multiple hops)
     * The model can be extended to handle multiple hop operations. To reduce the number of parameters, they propose two types of weight tying approaches.
         - Adjacent weight tying   
-![](https://github.com/gina9726/homework1/images/QA-Adjacent.png)
+![](https://github.com/gina9726/homework1/blob/master/images/QA-Adjacent.png)
         - Layer-wise (RNN-like) weight tying
-![](https://github.com/gina9726/homework1/images/QA-RNN.png)
+![](https://github.com/gina9726/homework1/blob/master/images/QA-RNN.png)
 
 ## Experiment
 * Synthetic Question Answering
@@ -65,5 +65,4 @@ link: [[paper](http://arxiv.org/abs/1503.08895)] [[code](https://github.com/face
 * In the previous works of QA tasks, the supporting subset should be strongly or weakly supervised; however, in this work, the **soft attention model can find its way to find the correlative sentences**. Besides, the hard max operations within each layer is replaced with softmax function that lead the easy calculation of backpropagation. Thus, it can be trained end-to-end.
     
 
-   
 

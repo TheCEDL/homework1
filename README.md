@@ -117,9 +117,6 @@ Addressing paramemters are hand-crafted parameters, and one can design his own p
 <li>
 In the concept of turing machine, it can perform various tasks and it is the prototype of the computers. Computers need to be programed so that they can achieve the desire missions. Instead of being programed, neural turing machine can learn these tasks like the way our brains do. As a result, with enough capability, neural turing machine can become the neural net version computer whose architecture of controllers may have more potential to simulate human brains rather than manully-designed computational units.
 </li>
-<li>
-GGG
-</li>
 </ol>
 
 

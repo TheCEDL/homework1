@@ -2,6 +2,17 @@
 Please complete each homework for each team, and <br>
 mention who contributed which parts in your report.
 
+## Member
+* captain - <a href="https://github.com/maolin23?tab=repositories">林姿伶</a>: 104062546
+* member -  <a href="https://github.com/hedywang73?tab=repositories">汪叔慧</a>: 104062526
+* member - <a href="https://github.com/yenmincheng0708?tab=repositories">嚴敏誠</a>: 104062595
+
+`Finish this report all together.`<br>
+```
+敏誠 typed first version of this report, 姿伶 and 叔慧 add some detail to finish this report.
+Finally, 姿伶 tyoed the final report on github.
+```
+
 ## Paper title
 <a href="https://arxiv.org/pdf/1508.03790v4.pdf">Depth-Gated LSTM</a>
 

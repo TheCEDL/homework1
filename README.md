@@ -30,6 +30,8 @@ Submitted on 19 May 2016
     - String label classification
   - Regression
 
+- Conclusion
+
 ## Abstract
 Traditional gradient-based networks require a lot of data to learn, often through extensive iterative training. The models must inefficiently relearn parameters to adequately incorporate with the new encountered data information.
 
@@ -113,6 +115,13 @@ They also use curriculum training on the MANN. The training started with 15 uniq
 ![Curriculum classification decay](https://github.com/markakisdong/homework1/blob/master/fig/Curriculum_classification_decay.png)<br>
 
 ## Regression
+To test regression, they generated functions using a GP prior with a fixed set of hyper-parameters. The network was trained using unique functions in each episode. Unlike in the image-classification scenario, this task demands a broader read from memory so the network must learn to interpolate from previously seen points, which most likely involves a strategy to have a more blended read-out from memory. The performance of the network was compared to true GP predictions of samples presented in the same order as was seen by the network.
+
+In the experiments, the GP was initiated with the correct hyper-parameteres for the sampled function, giving it an advantage in function prediction. In both the 2-d and 3-d cases, the log-likelihood predictions of the MANN tracks appreciably well versus the GP, with predictions becoming more accurate as samples are stored in the memory.<br>
+![GP regression](https://github.com/markakisdong/homework1/blob/master/fig/GP_regression.png)
+
+# Conclusion
+The central contribution of this paper is to demonstrate the special utility of a particular class of Memory-Augmented Neural Networks for meta-learning. The MANN examined here was found to display performance superior to a LSTM in the two experiments. We can say that MANNs are well-suited to meet the challenge that the new information must be flexibly stored and accessed in the tasks tested in this paper.
 
 # Contribution of this homework
 Mark 董晉東, 100%

@@ -95,3 +95,16 @@ Controller is a neural network which will generate the representation that is us
 <p align="center"><img src="img/flow1.png"></p>
 ###Type2, RNN(LSTM)
 <p align="center"><img src="img/flow2.png"></p>
+
+##Property and Application
+###Property
+<ul>
+<li>GG</li>
+<li>AAA</li>
+</ul>
+
+
+
+
+
+

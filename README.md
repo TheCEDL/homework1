@@ -73,7 +73,8 @@ For dataset 1 & 2, First cropping out the object using a random generated boundi
 For dataset 3, do horizontal flipping, as in [36].  
 
 ## Evaluation metric
-For dataset 1 & 2, standard IOU and pixel-wise accuracy. For dataset 3, method proposed in [4][22][36], including accuracy, average precision, average recall and average F-1 score.
+For dataset 1 & 2, standard IOU and pixel-wise accuracy.  
+For dataset 3, method proposed in [4][22][36], including accuracy, average precision, average recall and average F-1 score.
 ## Network architecture
 For dataset 1 and 2, model based on DeepLab-CRF-LargeFOV. For dataset 3, model based on Co-CNN.
 ## Weight initialization 
@@ -87,6 +88,7 @@ Input images are fixed as 321 x 321 for dataset 1,2, and 150 x 100 for dataset 3
 Use SLIC to generate avg.1000 superpixels per image.
 
 Two steps:
+
 1. Pretrain the 1x1 convolutional layer for generate initial confidence maps.Confidence map is used to decide starting node and updating sequence.
 2. Finetune the whole model based on the pretrained model in step 1. For each step, learning rate is initialized to 0.001 for newly added layers and 0.0001 for pretrained layers. Finetuning on DeepLAB-CRF-LargeFOV for 60 epochs takes 1 day.Training Co-CNN from scatch takes 4-5 days. All the training processes are done on the framework Caffe.
 # Results

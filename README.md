@@ -109,10 +109,10 @@ Unlike LSTM, whose memory is distributedly stored in each LSTM cell, neural turi
 </p>
 </ul>
 ###Usage
-<ul>
-<ol>GG</ol>
-<ol>YY</ol>
-</ul>
+<ol>
+<li>GG</li>
+<li>YY</li>
+</ol>
 
 
 

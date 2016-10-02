@@ -39,9 +39,9 @@ This paper introduce the ability of a memory-augmented neural network to rapidly
 
 ## Related Work
 ### Related one-shot learning methods
-I did some survey before reading this paper. For the one-shot learning task, there are mostly tackled with generative model (since prof. Fei-Fei, Li in 2006). NIPS this year (2016) also proposed a paper [Learning feed-forward one-shot learners](https://arxiv.org/abs/1606.05233).
+I did some survey before reading this paper. For the one-shot learning task, there are mostly tackled with generative model (since prof. Fei-Fei, Li in 2006). NIPS this year (2016) also proposed a paper [Learning feed-forward one-shot learners](https://arxiv.org/abs/1606.05233) which I did a thorough explanation [here](https://drive.google.com/file/d/0B4kqCDsB_3gQclVtVXQtVzNSSWs/view?usp=sharing).
 
-However, these tasks which focus on one-shot learning didn't apply the power of memory networks. In recent months, Google's DeepMind proposed two papers in May (this paper), and in June (combining Metric Learning with Memory Networks to solve the one-shot learning task. [Link is here](https://arxiv.org/abs/1606.04080)). Although the latter one is a generally more powerful one-shot learning model, in homework 1 I decided to focus solely on the memory-augmented neural network discussed in this paper.
+However, these methods that focus on one-shot learning tasks didn't apply the power of memory networks. In recent months, Google's DeepMind proposed two papers in May (this paper), and in June (combining Metric Learning with Memory Networks to solve the one-shot learning task. [Link is here](https://arxiv.org/abs/1606.04080)). Although the latter one is a generally more powerful one-shot learning model, I decided to focus solely on the memory-augmented neural network discussed in this paper for homework 1.
 
 ### About Meta-Learning
 Meta-Learning is a form of "Learning to learn", we choose parameters to reduce the expected learning cost across a distribution of datasets p(D):<br>

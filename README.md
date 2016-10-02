@@ -110,8 +110,12 @@ Unlike LSTM, whose memory is distributedly stored in each LSTM cell, neural turi
 </ul>
 ###Usage
 <ol>
-<li>GG</li>
-<li>YY</li>
+<li>
+In the concept of turing machine, it can perform various tasks and it is the prototype of the computers. Computers need to be programed so that they can achieve the desire missions. Instead of being programed, neural turing machine can learn these tasks like the way our brains do. As a result, with enough capability, neural turing machine can become the neural net version computer which is closer to the concept of artificial intelligence. whose architecture of controllers may have more potential to simulate what 
+</li>
+<li>
+GGG
+</li>
 </ol>
 
 

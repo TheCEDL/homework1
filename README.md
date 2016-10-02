@@ -10,7 +10,7 @@ mention who contributed which parts in your report.
 `Finish this report all together.`<br>
 ```
 敏誠 typed first version of this report, 姿伶 and 叔慧 add some detail to finish this report.
-Finally, 姿伶 tyoed the final report on github.
+Finally, 姿伶 typed the final report on github.
 ```
 
 ## Paper title

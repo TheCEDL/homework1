@@ -24,6 +24,7 @@ Submitted on 19 May 2016
     - Regression (End of paper introduction)
     
 - Experiments and Tasks
+  - Task Setup
   - Omniglot Classification
   - Regression
 
@@ -42,12 +43,13 @@ However, these tasks which focus on one-shot learning didn't apply the power of 
 
 ### About Meta-Learning
 Meta-Learning is like "Learning to learn", we choose parameters to reduce the expected learning cost across a distribution of datasets p(D):<br>
-![pic here]()<br>
+![Meta-learning loss](https://github.com/markakisdong/homework1/blob/master/fig/Meta-learning_loss.png)<br>
 Meta-learning model that meta-learns would learn to bind data representations to their appropriate labels regardless of the actual content of the data representation or label. These method is heavily used in one-shot learning tasks. However, is not really associated with memory network, so I'm going to stop here.
 
 ## Memory-Augmented Model
 ### Neural Turing Machine
-(I originally intended to introduce Neural Turing Machine. However, it has been chosen from other group.) The original Neural Turing Machine architecture contains two basic components: a neural network controller and a memory bank.
+(I originally intended to introduce Neural Turing Machine. However, it has been chosen from other group.) The original Neural Turing Machine architecture contains two basic components: a neural network controller and a memory bank:<br>
+![Original NTM](https://github.com/markakisdong/homework1/blob/master/fig/NTM_original.png)<br>
 
 The similarity between a NTM controller and a normal neural network is that the controller interacts with the external world via input and output vectors, such as LSTM. The dissimilarity between a NTM controller and a normal neural network is that the controller also interacts with a memory matrix using selective read/write operations.
 
@@ -62,29 +64,40 @@ The LRUA module is a pure content-based memory writer that writes memories to ei
 
 ### MANN(Memory-Augmented Neural Network) Architectures
 The MANN model proposed in this paper is a variant of a NTM:<br>
-![pic here]():<br>
+![MANN architecture](https://github.com/markakisdong/homework1/blob/master/fig/MANN_architecture.png):<br>
 The controllers in the experiments in this paper are feed-forward networks or LSTMs. The best performance comes from a LSTM with 200 hidden units. The controller receives some concatenated input (x_t, y_t-1) and update its state.
 
-### Output distribution and Learning
+### Output Distribution and Learning
 #### For one-hot label classification
 The controller output is first passed through a linear layer with an output size equal to the number of classes to be classified per episode. This linear layer output is then pased as input to the output distribution. The output distribution is a categorical distribution, implemented as a softmax function:<br>
-![pic here]()<br>
+![Output distribution one-hot label classification](https://github.com/markakisdong/homework1/blob/master/fig/Output_distribution_one-hot_label_classification.png)<br>
 
 In the learning phase, the network minimizes the episode loss of the input sequence:<br>
-![pic here]()<br>
+![one-hot label classification loss](https://github.com/markakisdong/homework1/blob/master/fig/One-hot_label_classification_loss.png)<br>
 <i>y_t</i> is the target one-hot label at time <i>t</i>, only one element assumes the value 1.
 
 #### For string label classification
 The linear output size is kept at 25. Each splitted parts of size 5 is sent to an independent categorical distribution that computes probabilities across its five inputs.
 
 In the learnig phase, the loss is similar to that of one-hot label classification:<br>
-![pic here]()<br>
+![string label classification loss](https://github.com/markakisdong/homework1/blob/master/fig/String_label_classification_loss.png)<br>
 <i>y_t</i> is the target string label at time <i>t</i>, five elements assumes the value 1(one per five-element 'chunk').
 
 #### For regression
 The network's output distribution is a Gaussian, and as such receives two-values from the controller output's linear layer at each time-step. Therefore, in the learning phase, the network minimizes the negative log-probabilities as determined by the Gaussian output distribution given these parameters and the true target <i>y_t</i>.
 
 # Experiment and Tasks
+For classification task, Omniglot dataset is used. For regression task, sampled functions from a Gaussian process with fixed hyperparameters is used.
 
+## Task setup
+For classification, <i>y_t</i> is the class label for an image <i>x_t</i>, and for regression, <i>y_t</i>is the value of hidden function for a vector with real-valued element <i>x_t</i>. In this setup, <i>y_t</i> is both a traget, and is presented as input along with <i>x_t</i> (as mentioned previously, input were concatenated). The network is tasked to output the appropriate label for <i>x_t</i> at the given timestep. Importantly, labels are shuffled from dataset-to-dataset to prevents the network from slowly learning sample-calss bindings in its weights. The network must learn to hold data samples in memory until the appropriate labels are presented at the next time-step, after which sample-class information can be bound and stored for later use.<br>
+![Task setup]()<br>
+
+## Omniglot classification
+MANN was trained using one-hot vector representations as class labels (the figure above). After training, the network was to predict the class labels for never-before-seen classes pulled from a disjoint test set from within Omniglot. One relevant baseline is human performance. In a series of proper setup for human performance testing which I skipped here, the performance of the MANN surpassed that of a human on each instance. Interestingly, the MANN displayed better than random guessing on the first instance within a class:<br>
+![Omniglot one-hot accuracy](https://github.com/markakisdong/homework1/blob/master/fig/One-hot_accuracy_table.png)<br>
+
+# Contribution of this homework
+Mark 董晉東, 100%
 # Other
 * Due on Oct. 3rd before class.

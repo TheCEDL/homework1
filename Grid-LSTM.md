@@ -61,6 +61,11 @@ The aim is to successively predict the next character in the corpus.
 BPC: bits per character   
 The tied 2-LSTM significantly outperforms other models despite having fewer parameters.
 
+- MNIST recognition
+The 3-LSTM performs computations with LSTM cells along three different dimensions. Two of the dimensions correspond to the two spatial dimensions of the grid, whereas the remaining dimension is the depth of the network. 
+  - Due to the unbounded context size of the 3-LSTM, the computations of features at one end of the image can be influenced by the features computed at the other end of the image within the same layer. 
+  - Due to the cells along the depth direction, features from the present patch can be passed onto the next layer either unprocessed or as processed by the layer itself as a function of neighboring patches.
+
 ## Discussion
 
 - Stacked LSTM is different from 2d grid LSTM
@@ -87,10 +92,6 @@ One may says that grid lstm simply increase the paramaters, so the performance i
 For a 1D grid LSTM, it's just a vector in vector out process. We can somehow treat it as a complec activation function. Closely observe the following equations, we can see that **m** is the one who control the flow of a signal, which can be seen as the switch of the activation function   
 
 <p align="center"><img src="https://github.com/andrewliao11/homework1/blob/master/mh.png?raw=true" width="250"> </p>  
-
--  2d data => apply in image? => HOW? Can go to very deep?
--  multi-dimensional grid lstm => suitable for what?
-
 
 ## Reference
 - ***[Grid Long Short-Term Memory](https://arxiv.org/abs/1507.01526)***, ICLR 2016

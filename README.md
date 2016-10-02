@@ -12,6 +12,8 @@ mention who contributed which parts in your report.
 　　　　　　　　　　　　　　　　**Fig .1** The architecture of two different versions of LSTM
 
 ## Unique properties
+　Although the problem of gradient explosion from training simple RNNs has been alleviated by LSTM, GRU…etc., the problem of gradient explosion still exists when training deeper networks. So the authors designed a gate called depth-gate between different layers to alleviate the problem of gradient explosion when training deeper network. Combine this gate with LSTM, the DGLSTM can also alleviate the problem of gradient explosion from recursive and deeper neural network.
+ 
 1.	The author introduces a depth-gate function to connect the memory cells between each layers which is different from the traditional LSTM.
 2.	The depth-gate can be thought of as the peephole which can take advantage of the low-level information.
 3.	The DGLSTM can prevent the gradient explosion in deeper networks.

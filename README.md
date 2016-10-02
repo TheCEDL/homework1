@@ -75,7 +75,8 @@ For dataset 3, do horizontal flipping, as in [36].
 ## Evaluation metric
 For dataset 1 & 2, standard IOU and pixel-wise accuracy.  
 For dataset 3, method proposed in [4][22][36], including accuracy, average precision, average recall and average F-1 score.
-![alt text](https://github.com/Tommy-Liu/homework1/blob/master/F1_score.PNG)
+
+![alt text](https://github.com/Tommy-Liu/homework1/blob/master/F1_score.png)
 
 ## Network architecture
 For dataset 1 & 2, model based on DeepLab-CRF-LargeFOV.  

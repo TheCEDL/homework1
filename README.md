@@ -1,13 +1,12 @@
 # Homework1 - Introduce a New NN with Memory 
-Please complete each homework for each team, and <br>
-mention who contributed which parts in your report.
+* Team Member : 邱志堯 , 劉兆寧, 曾守曜 ,簡光宏
+* Paper title : Semantic Object Parsing with Graph LSTM (ECCV2016)
+* Paper link : https://arxiv.org/pdf/1603.07063v1.pdf
 
-# Motivation
-NN with Memory can potentially to be used to acompplish many AI related tasks: Reasoning, Decision Making, etc. <br>
-Here are some related talks:<br>
-* Sumit Chopra from Facebook. Reasoning, Attention and Memory <a href="https://drive.google.com/open?id=0B_wzP_JlVFcKbHdpYVdZMjg3eTBQd2F1OG9QZlVhOGJoX0dz">slides</a>
-* Edward Grefenstette from Google DeepMind. Beyond Seq2Seq with Augmented RNNs  <a href="https://drive.google.com/open?id=0B_wzP_JlVFcKYTFaTVFJN18tbmtkX2V0WEEtWXVSdDV4UHVZ">slides</a>
-
+# Briefly intro of paper
+**The topic in this paper is semantic object parsing which aims to segment an object within an image into multiple parts** with more fine-grained semantics. Many high level computer vision applications can benefit from a powerful semantic object parser, including action recognition, clothes recognition and retrieval and human behavior analysis.
+<br>
+![alt text]()
 # To-Do
 * [+10] Please find a recent paper (2014-2015) which introduced a NN with memory.
 * [+50] Write a report to briefly introduce the paper;

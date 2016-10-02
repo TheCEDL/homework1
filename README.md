@@ -26,6 +26,8 @@ Submitted on 19 May 2016
 - Experiments and Tasks
   - Task Setup
   - Omniglot Classification
+    - One-hot label classification
+    - String label classification
   - Regression
 
 ## Abstract
@@ -81,7 +83,7 @@ The linear output size is kept at 25. Each splitted parts of size 5 is sent to a
 
 In the learnig phase, the loss is similar to that of one-hot label classification:<br>
 ![string label classification loss](https://github.com/markakisdong/homework1/blob/master/fig/String_label_classification_loss.png)<br>
-<i>y_t</i> is the target string label at time <i>t</i>, five elements assumes the value 1(one per five-element 'chunk').
+<i>y_t</i> is the target string label at time <i>t</i>, 5 elements assumes the value 1 (one per five-element 'chunk').
 
 #### For regression
 The network's output distribution is a Gaussian, and as such receives two-values from the controller output's linear layer at each time-step. Therefore, in the learning phase, the network minimizes the negative log-probabilities as determined by the Gaussian output distribution given these parameters and the true target <i>y_t</i>.
@@ -90,12 +92,27 @@ The network's output distribution is a Gaussian, and as such receives two-values
 For classification task, Omniglot dataset is used. For regression task, sampled functions from a Gaussian process with fixed hyperparameters is used.
 
 ## Task setup
-For classification, <i>y_t</i> is the class label for an image <i>x_t</i>, and for regression, <i>y_t</i>is the value of hidden function for a vector with real-valued element <i>x_t</i>. In this setup, <i>y_t</i> is both a traget, and is presented as input along with <i>x_t</i> (as mentioned previously, input were concatenated). The network is tasked to output the appropriate label for <i>x_t</i> at the given timestep. Importantly, labels are shuffled from dataset-to-dataset to prevents the network from slowly learning sample-calss bindings in its weights. The network must learn to hold data samples in memory until the appropriate labels are presented at the next time-step, after which sample-class information can be bound and stored for later use.<br>
-![Task setup]()<br>
+For classification, <i>y_t</i> is the class label for an image <i>x_t</i>, and for regression, <i>y_t</i>is the value of hidden function for a vector with real-valued element <i>x_t</i>. In this setup, <i>y_t</i> is both a traget, and is presented as input along with <i>x_t</i> (as mentioned previously in section MANN architecture, input were concatenated). The network is tasked to output the appropriate label for <i>x_t</i> at the given timestep. Importantly, labels are shuffled from dataset-to-dataset to prevents the network from slowly learning sample-calss bindings in its weights. The network must learn to hold data samples in memory until the appropriate labels are presented at the next time-step, after which sample-class information can be bound and stored for later use.<br>
+![Task setup](https://github.com/markakisdong/homework1/blob/master/fig/Task_setup.png)<br>
 
 ## Omniglot classification
+### One-hot label classification
 MANN was trained using one-hot vector representations as class labels (the figure above). After training, the network was to predict the class labels for never-before-seen classes pulled from a disjoint test set from within Omniglot. One relevant baseline is human performance. In a series of proper setup for human performance testing which I skipped here, the performance of the MANN surpassed that of a human on each instance. Interestingly, the MANN displayed better than random guessing on the first instance within a class:<br>
 ![Omniglot one-hot accuracy](https://github.com/markakisdong/homework1/blob/master/fig/One-hot_accuracy_table.png)<br>
+
+### String label classification
+Since learning the weights of a classifier using large one-hot vectors becomes increasingly difficult with sclae, this paper adopted another approach: new labels consists of string of 5 characters. Strings were represented as concatenated one-hot vectors, hence length 25 with 5 elements assuming a value 1 (as mentioned previously in section output distribution). The proposed MANN with LRUA surpassed MANN with standard NTM module. The rest detail setup is skipped:<br>
+![String classification accuracy](https://github.com/markakisdong/homework1/blob/master/fig/String_classification_accuracy.png)<br>
+
+The below figure is Omniglot accuracy during increasing training episodes comparing to novice LSTM, (a) and (b) are one-hot labels, (c) and (d) are five-characteres string labels.<br>
+![Omniglot classification](https://github.com/markakisdong/homework1/blob/master/fig/Omniglot_classification_all.png)<br>
+
+There are other method to test the network, including persistent memory interference, that is, there are unique classes/labels in each episode. The test is that they performed the classification task without wiping the external memory between episodes. However, this task proved predctably difficult, and the network was less robuts in its ability to achieve accurate classification. They stated that exploring the requirements for robust performance is a topic of future work.
+
+They also use curriculum training on the MANN. The training started with 15 unique classes, and increment one in every 10000 episodes. The network, yet, generally exhibited gradually decaying performance as the number of classes increased towards 100. They stated that assessing the maximum capacity of the network is also a topic of future work.<br>
+![Curriculum classification decay](https://github.com/markakisdong/homework1/blob/master/fig/Curriculum_classification_decay.png)<br>
+
+## Regression
 
 # Contribution of this homework
 Mark 董晉東, 100%

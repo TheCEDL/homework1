@@ -46,8 +46,21 @@ To show that this brand-new LSTM cell can be widely used in different task, the 
 - Arithmetic calculation
 In this part, the arithmetic task is look like the following figure. Input is fed a sequence of digit, and the output is expected to be the sum of them.
 <p align="center"><img src="https://github.com/andrewliao11/homework1/blob/master/arith.png?raw=true" /></p>   
-It's tested in stacked LSTM, untied grid 2-LSTM, and tied grid 2-LSTM. The tied grid 2-LSTM got the best performance. Probably because the summation is operated repeatly, which is more direct to use the same parameter in every dimension, namely tied grid 2-LSTM.
+It's tested in stacked LSTM, untied grid 2-LSTM, and tied grid 2-LSTM. The tied grid 2-LSTM got the best performance. Probably because the **summation is operated repeatly**, which is more direct to use the same parameter in every dimension, namely tied grid 2-LSTM.
 <p align="center"><img src="https://github.com/andrewliao11/homework1/blob/master/arith-exp.png?raw=true" /></p>
+
+- Memorization
+Since the sequences are randomly generated, there is no correlation between successive symbols and the network must memorize the whole sequence without compression.
+<p align="center"><img src="https://github.com/andrewliao11/homework1/blob/master/mem.png?raw=true" /></p>   
+The vertical axis indicates the number of samples needed to achieve the threshold accuracy. We see that **deeper networks tend to learn faster than shallower ones**, and that 2-LSTM networks are more effective than Stacked LSTM networks in both the tied and untied settings. Deeper network tends to learn faster than shallow is kind of different from our traditional thought. ***We guess that it's because this tied grid LSTM share the same weight (doesn't use too many parameters to train) and the LSTM mitigate the gradient vanishing problem in deep network.***
+<p align="center"><img src="https://github.com/andrewliao11/homework1/blob/master/mem-exp.png?raw=true" /></p>   
+
+- Language modelling
+The aim is to successively predict the next character in the corpus.
+<p align="center"><img src="https://github.com/andrewliao11/homework1/blob/master/lang-exp.png?raw=true" /></p>   
+BPC: bits per character   
+The tied 2-LSTM significantly outperforms other models despite having fewer parameters.
+
 ## Discussion
 
 - Stacked LSTM is different from 2d grid LSTM

@@ -67,11 +67,11 @@ The LRUA module is a pure content-based memory writer that writes memories to ei
 ### MANN(Memory-Augmented Neural Network) Architectures
 The MANN model proposed in this paper is a variant of a NTM:<br>
 ![MANN architecture](https://github.com/markakisdong/homework1/blob/master/fig/MANN_architecture.png):<br>
-The controllers in the experiments in this paper are feed-forward networks or LSTMs. The best performance comes from a LSTM with 200 hidden units. The controller receives some concatenated input (x_t, y_t-1) and update its state.
+The controllers in the experiments in this paper are feed-forward networks or LSTMs. The best performance comes from a LSTM with 200 hidden units. Duriung training and testing, the controller receives concatenated inputs (x_t, y_t-1) and update its state.
 
 ### Output Distribution and Learning
 #### For one-hot label classification
-The controller output is first passed through a linear layer with an output size equal to the number of classes to be classified per episode. This linear layer output is then pased as input to the output distribution. The output distribution is a categorical distribution, implemented as a softmax function:<br>
+The controller's output is first passed through a linear layer with an output size equal to the number of classes per episode. This linear layer output is then passed as input to the output distribution. The output distribution is a categorical distribution, implemented as a softmax function:<br>
 ![Output distribution one-hot label classification](https://github.com/markakisdong/homework1/blob/master/fig/Output_distribution_one-hot_label_classification.png)<br>
 
 In the learning phase, the network minimizes the episode loss of the input sequence:<br>
@@ -79,14 +79,14 @@ In the learning phase, the network minimizes the episode loss of the input seque
 <i>y_t</i> is the target one-hot label at time <i>t</i>, only one element assumes the value 1.
 
 #### For string label classification
-The linear output size is kept at 25. Each splitted parts of size 5 is sent to an independent categorical distribution that computes probabilities across its five inputs.
+The linear output size is kept at 25. Each splitted parts of size 5 is sent to an independent categorical distribution that computes probabilities across its five inputs, thus form the output distribution.
 
 In the learnig phase, the loss is similar to that of one-hot label classification:<br>
 ![string label classification loss](https://github.com/markakisdong/homework1/blob/master/fig/String_label_classification_loss.png)<br>
 <i>y_t</i> is the target string label at time <i>t</i>, 5 elements assumes the value 1 (one per five-element 'chunk').
 
 #### For regression
-The network's output distribution is a Gaussian, and as such receives two-values from the controller output's linear layer at each time-step. Therefore, in the learning phase, the network minimizes the negative log-probabilities as determined by the Gaussian output distribution given these parameters and the true target <i>y_t</i>.
+The network's output distribution is a Gaussian, and as such receives two-values from the controller output's linear layer at each time-step. So, in the learning phase, the network minimizes the negative log-probabilities as determined by the Gaussian output distribution given these parameters and the true target <i>y_t</i>.
 
 # Experiment and Tasks
 For classification task, Omniglot dataset is used. For regression task, sampled functions from a Gaussian process with fixed hyperparameters is used.
@@ -101,7 +101,7 @@ MANN was trained using one-hot vector representations as class labels (the figur
 ![Omniglot one-hot accuracy](https://github.com/markakisdong/homework1/blob/master/fig/One-hot_accuracy_table.png)<br>
 
 ### String label classification
-Since learning the weights of a classifier using large one-hot vectors becomes increasingly difficult with sclae, this paper adopted another approach: new labels consists of string of 5 characters. Strings were represented as concatenated one-hot vectors, hence length 25 with 5 elements assuming a value 1 (as mentioned previously in section output distribution). The proposed MANN with LRUA surpassed MANN with standard NTM module. The rest detail setup is skipped:<br>
+Since learning the weights of a classifier using large one-hot vectors becomes increasingly difficult with sclae, this paper adopted another approach: constructing new labels consisting of 5 characters (string). Strings were represented as concatenated one-hot vectors, hence length 25 with 5 elements assuming a value 1 (as mentioned previously in Section output distribution). The proposed MANN with LRUA surpassed MANN with standard NTM module. The rest detail setup is skipped:<br>
 ![String classification accuracy](https://github.com/markakisdong/homework1/blob/master/fig/String_classification_accuracy.png)<br>
 
 The below figure is Omniglot accuracy during increasing training episodes comparing to novice LSTM, (a) and (b) are one-hot labels, (c) and (d) are five-characteres string labels.<br>

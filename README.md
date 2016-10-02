@@ -100,7 +100,13 @@ Controller is a neural network which will generate the representation that is us
 ###Property
 <ul>
 <li>GG</li>
+<p>
+TEST
+</p>
 <li>AAA</li>
+<p>
+ddf
+</p>
 </ul>
 
 

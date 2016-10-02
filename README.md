@@ -102,3 +102,103 @@ Two steps:
 2. Finetune the whole model based on the pretrained model in step 1. For each step, learning rate is initialized to 0.001 for newly added layers and 0.0001 for pretrained layers. Finetuning on DeepLAB-CRF-LargeFOV for 60 epochs takes 1 day.Training Co-CNN from scatch takes 4-5 days. All the training processes are done on the framework Caffe.
 
 # Results
+
+
+![alt text](https://github.com/Tommy-Liu/homework1/blob/master/table1.PNG)
+
+
+Graph LSTM outperforms other baselines in average IOU. In particularly, it provides **better prediction on easily confusion parts such as upper-arms and lower-arms**. Comparing to HAZN[8], Graph LSTM has 4.95% and 6.67% higher score for lower-arms and upper legs, respectively. **This shows the effectiveness of eploiting global context to boost local predictions**.
+
+
+![alt text](https://github.com/Tommy-Liu/homework1/blob/master/table2.PNG)
+
+
+**Graph LSTM gives a huge boost in average IOU**. On horse class, it achieves 2.59% better performance than the state-of-the-art. Also on cow class, it achieves 7.26% better than LG-LSTM[17] and 3.11% better than HAZN[8].
+
+**Graph LSTM (more)** is trained on extra 10,000 images from [36]
+Liang, X., Xu, C., Shen, X., Yang, J., Liu, S., Tang, J., Lin, L., Yan, S.: Human parsing with contextualized convolutional neural network. In: ICCV. (2015) 
+
+
+![alt text](https://github.com/Tommy-Liu/homework1/blob/master/table3.PNG)
+![alt text](https://github.com/Tommy-Liu/homework1/blob/master/table4.PNG)
+
+
+On ATR dataset, Graph LSTM can significantly outperform these baselines in terms of average F-1 score. With additional 10,000 training images, it’s F-1 score can be further improved to 88.20%, which is much better than CRFasRNN (more). This verifies that **Graph LSTM  is superior to the pair-wise CRF in capturing global context**.
+
+
+![alt text](https://github.com/Tommy-Liu/homework1/blob/master/table5.PNG)
+
+
+Train on ATR dataset and then test on the 229 images of the Fashionista dataset. Graph LSTM still substantially outperform other baselines.
+
+
+![alt text](https://github.com/Tommy-Liu/homework1/blob/master/table6.PNG)
+
+
+Table 6 and Table 7 compare different LSTM structures and node updatng schemes. The result shows that graph-structured LSTM and confidence-driven updating scheme have the best performance in almost every semantic parts.
+
+# Discussions
+## Graph LSTM vs locally fixed factorized LSTM  [Table 6.]
+Graph LSTM has adaptive graph topologies for each image, each node representing a LSTM unit. The network is more flexible and benefits from the rich local context. Each node in Graph LSTM can has different number of neighbors, better describing the sematic structure of the image and reduce many redundant nodes comparing fixed one. I blieve that these charateristics not only make gradient propagations more effieciently but also lead to better convergence speed and convergence results.
+## Graph LSTM vs superpixel smoothing  [Table6.]
+Graph LSTM’s performance gain is not just from using SLIC for more accurate boundary information. Comparing to Diagonal BiLSTM and LG_LSTM plused post superpixel smoothing, Graph LSTM still bring more performance gain from its adaptive LSTM graph structure.
+## Node updating scheme  [Table 7. and Table 8.]
+There are two ways to select starting node for BFS and DFS methods: 1) always starts from the spatially left most node 2) starts from the node with maximal confidence on all foreground labels. Confidence updating scheme can achieve slightly better performace than other alternatives. This possibly infers that features from superpixel nodes with higher forground confidences may contain more accurate semantic informations and thus lead to more reliable global reasoning.
+Instead of using all foreground labels, Table 8 test the performance of using initial confidence map of single label. In average, only slight preformance difference there. Interestingly, however, using “head” or “torso” label leads to the best two performance 61.03% and 61.45%, over all single foreground label results. It is possible that  head/torso are the major/central part of human body topology and thus lead to better discrimination of different body parts. Nevetheless, its difficult to determine the best semantic labels for each task.
+
+
+![alt text](https://github.com/Tommy-Liu/homework1/blob/master/table7.PNG)
+
+
+## Adaptive forget gates [Table 9.]
+In the locally fixed factorized LSTMs, the **same forget states** are learned to exploit the influences of neighboring pixels on the updated states of each pixel. Whereas in Graph LSTM, **adaptive forget gates** are adopted to **treat different neighbors differently**. “Identical forget gate” shows the results of learning identical forget gates for all neighbors and simultaneously ignoring the memory states of neighboring nodes:
+
+
+![alt text](https://github.com/Tommy-Liu/homework1/blob/master/equ3.PNG)
+
+
+From Table 9., it can be observed that adaptive forget gates show better performance. Because diverse semantic correlations in local contenxt can be considered during the node updating.
+
+## Superpixel number
+The superpixels can group pixels based on spatial and appearance similarity, reducing the number of nodes and keep semantic consistency. However, superpixels may also introduce quantization erros. As from the experiment, there are slight improvements when using over 1,000 superpixels. 
+
+
+![alt text](https://github.com/Tommy-Liu/homework1/blob/master/fig4.PNG)
+
+
+## Residual connections
+Residual connections can help training very deep convolutional networks. In Graph LSTM, residual connections can boost the performance from 59.12% to 60.16%.
+
+## Advantages of Graph LSTM and further applications
+In traditional LSTM, a lot of computation with the fixed topology is redundant and inefficient as it has to consider all the pixels, even for the ones in a simple plain region.Graph LSTM  propagate information from one adaptive starting superpixel node to all superpixel nodes along the adaptive graph topology for each image.**It can effectively reduce redundant computational costs** while better preserving object part boundaries to **facilitate global reasoning over the whole image**.
+
+**The confidence-driven update scheme can provide a more reliable updating sequence for better semantic reasoning**, since the earlier nodes in the updated sequence have stronger semantic evidence (e.g., belonging to any important semantic parts with higher confidence) and their visual features may be more reliable for message passing.
+
+In contrast to global context, the use of **adaptive forget gate** gives Graph LSTM the ability to **learn different local context relationship between neighboring nodes**.
+
+With all the characteristics mentioned aboved, Graph LSTM provides a reliable structure to combine global and local context reasoning. This idea may be used to further improve scene understaning and image captioning, because both the global and local information need to be considered to generate good results. Also, human action detection or joint labeling may also benefit from the image global context.
+
+## Visual Results Comparison
+
+
+![alt text](https://github.com/Tommy-Liu/homework1/blob/master/fig5.PNG)
+![alt text](https://github.com/Tommy-Liu/homework1/blob/master/fig6.PNG)
+
+
+# Work Assignment
+
+* Briefly intro of paper: 邱志堯、曾守曜、簡光宏
+* The structure of Graph LSTM: 邱志堯、劉兆寧
+* Experiments: 曾守曜、劉兆寧
+* Discussion: 曾守曜、邱志堯、簡光宏
+* Publish report on github : 簡光宏、劉兆寧
+
+# Reference
+
+[idx]: the reference index in the orignal paper
+
+1. [12] Wang, P., Shen, X., Lin, Z., Cohen, S., Price, B., Yuille, A.: Joint object and part segmentation using deep learned potentials. In: ICCV. (2015)  
+2. [36] Liang, X., Xu, C., Shen, X., Yang, J., Liu, S., Tang, J., Lin, L., Yan, S.: Human parsing with contextualized convolutional neural network. In: ICCV. (2015)  
+3. [4] Yamaguchi, K., Kiapour, M., Berg, T.: Paper doll parsing: Retrieving similar styles to parse clothing items. In: ICCV. (2013)
+4. [22] Liang, X., Liu, S., Shen, X., Yang, J., Liu, L., Dong, J., Lin, L., Yan, S.: Deep human parsing with active template regression. TPAMI (2015)  
+

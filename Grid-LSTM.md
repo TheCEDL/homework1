@@ -26,26 +26,28 @@ To go deeper into LSTM cell, let's talk about the multi-dimensional LSTM. The mu
 This has a problem that the input dimension and the memory cell will grow combinatorially as the dimension(***N***) increase.
 
 ### Motivation
-LSTM is made to mitigate the gradient vanishing problem and is able to capture the long-term memory well. When dealing with computer vision problem, we might want to build a super deep neural network, while evenetually get a poor performance due to the gradient vanishing problem. So, is it possible for us to use the LSTM to mitigate this problem as well?
-
-------------------------------------------------------------------------------------------
-
-- Change the way LSTM communicate with each others
-- Can be applied to feed-forward network or recurrent neural network
+- LSTM is made to mitigate the gradient vanishing problem and is able to capture the long-term memory well. When dealing with computer vision problem, we might want to build a super deep neural network, while evenetually get a poor performance due to the gradient vanishing problem. So, is it possible for us to use the LSTM to mitigate this problem as well?
+- Flexibility: easy to be applied to others task
 
 ### Architecture
 Unlike the multidimensional case, the block outputs N hidden vectors h1 , ..., hN and N memory vectors m1 , ..., mN that are all distinct. So eventually there will be N transforms LSTM, one for each dimension.
 
 <p align="center"><img src="https://github.com/andrewliao11/homework1/blob/master/arc1.png?raw=true" /></p>
 
-Note how the vector H that contains all the input hidden vectors is shared across the transforms, whereas the input memory vectors affect the N-way interaction but are not directly combined.
+Note that the vector H containing all the input hidden vectors is shared across the transforms, whereas the input memory vectors (m1,...,mN) affect the N-way interaction but are not directly combined (in multi-dimensional case, the differenct memory vectors are directly summed togerther).
 
 <p align="center"><img src="https://github.com/andrewliao11/homework1/blob/master/glstm.png?raw=true" /></p>
 
-Beware that each transform has distinct weight matrices, so the paramaters will increase significantly. So they also proposed weight sharing mechanism, Sharing of weight matrices can be specified along any dimension in a Grid LSTM and it can be useful to induce invariance in the computation along that dimension. If the weights are shared along all dimensions including the depth, we refer to the model as a **Tied N-LSTM**
+Beware that each transform has distinct weight matrices, so the paramaters will increase significantly. So they also proposed weight sharing mechanism, Sharing of weight matrixes can be specified along any dimension in a Grid LSTM and it can be useful to induce invariance in the computation along that dimension. If the weights are shared along all dimensions including the depth, we refer to the model as a **Tied N-LSTM**
 
+### Experiment
+To show that this brand-new LSTM cell can be widely used in different task, the author show some experiments on arithmetic calculation, memorization, language modelling, and even mnist digit recognition(2D case).
 
-
+- Arithmetic calculation
+In this part, the arithmetic task is look like the following figure. Input is fed a sequence of digit, and the output is expected to be the sum of them.
+<p align="center"><img src="https://github.com/andrewliao11/homework1/blob/master/arith.png?raw=true" /></p>   
+It's tested in stacked LSTM, untied grid 2-LSTM, and tied grid 2-LSTM. The tied grid 2-LSTM got the best performance. Probably because the summation is operated repeatly, which is more direct to use the same parameter in every dimension, namely tied grid 2-LSTM.
+<p align="center"><img src="https://github.com/andrewliao11/homework1/blob/master/arith-exp.png?raw=true" /></p>
 ## Discussion
 
 - Stacked LSTM is different from 2d grid LSTM
@@ -72,8 +74,6 @@ One may says that grid lstm simply increase the paramaters, so the performance i
 For a 1D grid LSTM, it's just a vector in vector out process. We can somehow treat it as a complec activation function. Closely observe the following equations, we can see that **m** is the one who control the flow of a signal, which can be seen as the switch of the activation function   
 
 <p align="center"><img src="https://github.com/andrewliao11/homework1/blob/master/mh.png?raw=true" width="250"> </p>  
-
-  
 
 -  2d data => apply in image? => HOW? Can go to very deep?
 -  multi-dimensional grid lstm => suitable for what?

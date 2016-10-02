@@ -14,7 +14,8 @@ link: [[paper](http://arxiv.org/abs/1503.08895)] [[code](https://github.com/face
 * The model writes all x to the memory up to a fixed buffer size, and then finds a continuous representation for the x and q.
 
 ## Model
-![](https://github.com/gina9726/homework1/blob/master/images/QA-single%20layer.png)
+<img src="./images/QA-single layer.png" width="640">
+
 * Single layer
     * Input memory representation
         - The entire set of {xi} are converted into memory vectors {mi} of dimension d computed by embedding each xi in a continuous space, using embedding matrix A of size V*d. 
@@ -24,13 +25,13 @@ link: [[paper](http://arxiv.org/abs/1503.08895)] [[code](https://github.com/face
         - Each xi has a corresponding output vector ci, using embedding matrix C with the same size as A and B.
         - The response vector from the memory o is then a sum over the transformed inputs ci, weighted by the probability vector from the input: o = sum(pi*ci)
 
-![](https://github.com/gina9726/homework1/blob/master/images/QA-multiple%20layer.png)
+<img src="./images/QA-multiple layer.png" width="640">
 * Multiple layers (multiple hops)
     * The model can be extended to handle multiple hop operations. To reduce the number of parameters, they propose two types of weight tying approaches.
         - Adjacent weight tying   
-![](https://github.com/gina9726/homework1/blob/master/images/QA-Adjacent.png)
+<img src="./images/QA-Adjacent.png" width="640">
         - Layer-wise (RNN-like) weight tying
-![](https://github.com/gina9726/homework1/blob/master/images/QA-RNN.png)
+<img src="./images/QA-RNN.png" width="640">
 
 ## Experiment
 * Synthetic Question Answering

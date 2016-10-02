@@ -99,11 +99,11 @@ Controller is a neural network which will generate the representation that is us
 ##Property and Application
 ###Property
 <ul>
-<li>GG</li>
+<li><strong>GG</strong></li>
 <p>
 TEST
 </p>
-<li>AAA</li>
+<li><strong>AAA</strong></li>
 <p>
 ddf
 </p>

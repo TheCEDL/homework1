@@ -80,12 +80,14 @@ For dataset 1 and 2, model based on DeepLab-CRF-LargeFOV. For dataset 3, model b
 ## Weight initialization 
 For Graph LSTM layers, uniform distribution between -0.1 and 0.1. For all convolutional layers, Gaussian distribution with σ = 0.001
 ## Other training settings
+
 1. Stochastic gradient descent with batch size of 2. 
 2. Momentum of 0.9 
 3. Weight decay of 0.0005.
+
 ## Training Steps
 Input images are fixed as 321 x 321 for dataset 1,2, and 150 x 100 for dataset 3.  
-Use SLIC to generate avg.1000 superpixels per image.
+Use SLIC to generate avg.1000 superpixels per image.  
 
 Two steps:
 

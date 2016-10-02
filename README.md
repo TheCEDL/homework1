@@ -107,7 +107,7 @@ Since neural turing machine can learns general concepts and algorithms, we can f
 <p>
 Unlike LSTM, whose memory is distributedly stored in each LSTM cell, neural turing machine seperates memory from controller and thus centralizes management over memory. This design benifits longer term memory and faster training.
 </p>
-<li><strong>Addressing Mechanism:</strong></li>
+<li><strong>Addressing Mechanism</strong></li>
 <p>
 Addressing paramemters are hand-crafted parameters, and one can design his own parameters to reach the requirment.
 </p>

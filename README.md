@@ -63,10 +63,10 @@ Here δ is the logistic sigmoid function, and ⊙ indicates a point-wise product
 
 # Experiments
 ## Datasets
+
 1. PASCAL-Person-Part dataset
 2. Horse-Cow parsing dataset
 3. ATR dataset and Fasionista dataset
-
 
 ## Data augmentation
 For dataset 1 & 2, First cropping out the object using a random generated bounding box, and then perform additional cropping, filpping, color intensity scaling and rotation, as in [12].  
@@ -75,10 +75,16 @@ For dataset 3, do horizontal flipping, as in [36].
 ## Evaluation metric
 For dataset 1 & 2, standard IOU and pixel-wise accuracy.  
 For dataset 3, method proposed in [4][22][36], including accuracy, average precision, average recall and average F-1 score.
+![alt text](https://github.com/Tommy-Liu/homework1/blob/master/F1_score.PNG)
+
 ## Network architecture
-For dataset 1 and 2, model based on DeepLab-CRF-LargeFOV. For dataset 3, model based on Co-CNN.
+For dataset 1 & 2, model based on DeepLab-CRF-LargeFOV.  
+For dataset 3, model based on Co-CNN.
+
 ## Weight initialization 
-For Graph LSTM layers, uniform distribution between -0.1 and 0.1. For all convolutional layers, Gaussian distribution with σ = 0.001
+For Graph LSTM layers, uniform distribution between -0.1 and 0.1.  
+For all convolutional layers, Gaussian distribution with σ = 0.001
+
 ## Other training settings
 
 1. Stochastic gradient descent with batch size of 2. 
@@ -93,4 +99,5 @@ Two steps:
 
 1. Pretrain the 1x1 convolutional layer for generate initial confidence maps.Confidence map is used to decide starting node and updating sequence.
 2. Finetune the whole model based on the pretrained model in step 1. For each step, learning rate is initialized to 0.001 for newly added layers and 0.0001 for pretrained layers. Finetuning on DeepLAB-CRF-LargeFOV for 60 epochs takes 1 day.Training Co-CNN from scatch takes 4-5 days. All the training processes are done on the framework Caffe.
+
 # Results

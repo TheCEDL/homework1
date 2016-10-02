@@ -92,7 +92,7 @@ The network's output distribution is a Gaussian, and as such receives two-values
 For classification task, Omniglot dataset is used. For regression task, sampled functions from a Gaussian process with fixed hyperparameters is used.
 
 ## Task setup
-For classification, <i>y_t</i> is the class label for an image <i>x_t</i>, and for regression, <i>y_t</i>is the value of hidden function for a vector with real-valued element <i>x_t</i>. In this setup, <i>y_t</i> is both a traget, and is presented as input along with <i>x_t</i> (as mentioned previously in section MANN architecture, input were concatenated). The network is tasked to output the appropriate label for <i>x_t</i> at the given timestep. Importantly, labels are shuffled from dataset-to-dataset to prevents the network from slowly learning sample-calss bindings in its weights. The network must learn to hold data samples in memory until the appropriate labels are presented at the next time-step, after which sample-class information can be bound and stored for later use.<br>
+For classification, <i>y_t</i> is the class label for an image <i>x_t</i>, and for regression, <i>y_t</i>is the value of hidden function for a vector with real-valued element <i>x_t</i>. In this setup, <i>y_t</i> is both a target, and is presented as input along with <i>x_t</i> (as mentioned previously in section MANN architecture, input were concatenated). The more detailed setup is described in the below figure.<br>
 ![Task setup](https://github.com/markakisdong/homework1/blob/master/fig/Task_setup.png)<br>
 
 ## Omniglot classification
@@ -115,11 +115,11 @@ They also use curriculum training on the MANN. The training started with 15 uniq
 ## Regression
 To test regression, they generated functions using a GP prior with a fixed set of hyper-parameters. The network was trained using unique functions in each episode. Unlike in the image-classification scenario, this task demands a broader read from memory so the network must learn to interpolate from previously seen points, which most likely involves a strategy to have a more blended read-out from memory. The performance of the network was compared to true GP predictions of samples presented in the same order as was seen by the network.
 
-In the experiments, the GP was initiated with the correct hyper-parameteres for the sampled function, giving it an advantage in function prediction. In both the 2-d and 3-d cases, the log-likelihood predictions of the MANN tracks appreciably well versus the GP, with predictions becoming more accurate as samples are stored in the memory.<br>
+In both the 2-d and 3-d experiments, the log-likelihood predictions of the MANN tracks appreciably well versus the GP, with predictions becoming more accurate as samples are stored in the memory.<br>
 ![GP regression](https://github.com/markakisdong/homework1/blob/master/fig/GP_regression.png)
 
 # Conclusion
-The central contribution of this paper is to demonstrate the special utility of a particular class of Memory-Augmented Neural Networks for meta-learning. The MANN examined here was found to display performance superior to a LSTM in the two experiments. We can say that MANNs are well-suited to meet the challenge that the new information must be flexibly stored and accessed in the tasks tested in this paper.
+The central contribution of this paper is to demonstrate the special utility of a particular class of Memory-Augmented Neural Networks for meta-learning. The MANN examined here was found to display performance superior to a LSTM in the two experiments. We can say that MANNs are well-suited to meet the challenge that the new information must be flexibly stored and accessed in the experiments conducted in this paper.
 
 # Contribution of this homework
 Mark 董晉東, 100%

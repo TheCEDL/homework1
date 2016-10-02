@@ -1,12 +1,24 @@
 # Homework1 - Introduce a New NN with Memory 
-Please complete each homework for each team, and <br>
-mention who contributed which parts in your report.
+In this homework, we will summarize two papers related to NN with memory <br>
+The papers include: <br>
+1. LSTM: A Search Space Odyssey <br>
+2. Dynamic Neural Turing Machine with Soft and Hard Addressing Schemes <br>
+
+負責部份:<br>
+1. LSTM: A Search Space Odyssey: <br>
+   Organizer:周育潤, 翁慶年 <br>
+2. Dynamic Neural Turing Machine with Soft and Hard Addressing Schemes <br>
+   Organizer:鄭乃嘉, 賴筱婷 <br>
+
+
 
 # Motivation
-NN with Memory can potentially to be used to acompplish many AI related tasks: Reasoning, Decision Making, etc. <br>
-Here are some related talks:<br>
-* Sumit Chopra from Facebook. Reasoning, Attention and Memory <a href="https://drive.google.com/open?id=0B_wzP_JlVFcKbHdpYVdZMjg3eTBQd2F1OG9QZlVhOGJoX0dz">slides</a>
-* Edward Grefenstette from Google DeepMind. Beyond Seq2Seq with Augmented RNNs  <a href="https://drive.google.com/open?id=0B_wzP_JlVFcKYTFaTVFJN18tbmtkX2V0WEEtWXVSdDV4UHVZ">slides</a>
+To have a more comprehensive and deeper understanding about the different variants of <br>
+LSTM and the practical mathematical method applied on it, we go throgh two informative <br>
+papers to get clear insight of this frontier research territory <br>
+
+* LSTM: A Search Space Odyssey <a href="https://arxiv.org/abs/1503.04069">slides</a>
+* Dynamic Neural Turing Machine with Soft and Hard Addressing Schemes <a href="https://arxiv.org/abs/1607.00036">slides</a>
 
 # To-Do
 * [+10] Please find a recent paper (2014-2015) which introduced a NN with memory.

@@ -1,6 +1,6 @@
 # Homework1 - Introduce a New NN with Memory
 
-# To-Do
+# Already-Did
 * [+10] Please find a recent paper (2014-2015) which introduced a NN with memory.
 * [+50] Write a report to briefly introduce the paper;
 * [+40] then, focus on discussing the unique properties of the new NN and where it can be applied to take advantage of the properties.

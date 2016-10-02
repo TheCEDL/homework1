@@ -69,7 +69,8 @@ Here δ is the logistic sigmoid function, and ⊙ indicates a point-wise product
 
 
 ## Data augmentation
-For dataset 1 & 2, First cropping out the object using a random generated bounding box, and then perform additional cropping, filpping, color intensity scaling and rotation, as in [12]. For dataset 3, do horizontal flipping, as in [36].
+For dataset 1 & 2, First cropping out the object using a random generated bounding box, and then perform additional cropping, filpping, color intensity scaling and rotation, as in [12].  
+For dataset 3, do horizontal flipping, as in [36].  
 
 ## Evaluation metric
 For dataset 1 & 2, standard IOU and pixel-wise accuracy. For dataset 3, method proposed in [4][22][36], including accuracy, average precision, average recall and average F-1 score.
@@ -82,12 +83,10 @@ For Graph LSTM layers, uniform distribution between -0.1 and 0.1. For all convol
 2. Momentum of 0.9 
 3. Weight decay of 0.0005.
 ## Training Steps
-Input images are fixed as 321 x 321 for dataset 1,2, and 150 x 100 for dataset 3. Use SLIC to generate avg.1000 superpixels per image.
-
+Input images are fixed as 321 x 321 for dataset 1,2, and 150 x 100 for dataset 3.  
+Use SLIC to generate avg.1000 superpixels per image.
 
 Two steps:
-
-
 1. Pretrain the 1x1 convolutional layer for generate initial confidence maps.Confidence map is used to decide starting node and updating sequence.
 2. Finetune the whole model based on the pretrained model in step 1. For each step, learning rate is initialized to 0.001 for newly added layers and 0.0001 for pretrained layers. Finetuning on DeepLAB-CRF-LargeFOV for 60 epochs takes 1 day.Training Co-CNN from scatch takes 4-5 days. All the training processes are done on the framework Caffe.
 # Results

@@ -31,16 +31,14 @@ The Graph LSTM layers built on a superpixel map are appended on the convolutiona
 ## Confience-driven Scheme
 Given the constructed undirected graph G, they tried several schemes to update all nodes in a graph in the experiments, including the BFS,DFS and Confidence-Driven Search (CDS). They find that the CDS achieves better performance.
 
-
 Given the top convolutional feature maps, the 1 × 1 convolutional filters can be used to generate the initial confidence maps with regard to each semantic label. Then the confidence of each superpixel for each label is computed by averaging the confidences of its contained pixels, and the label with highest confidence could be assigned to the superpixel.
-
 
 Among all the foreground superpixels (i.e., assigned to any semantic part label), the node updating sequence can be determined by ranking all the superpixel nodes according to the confidences of their assigned labels. The ones with higher confidences will be updated first. If two nodes have the same confidence score, the spatially left one will be first updated.
 
+**The CDS scheme can provide a  more reliable updating sequence for better semantic reasoning, since the earlier nodes in the updated sequence belong to some important semantic parts with higher confidence and their visual features may be more reliable for message passing.**
 
-**The CDS scheme can provide a  more reliable updating sequence for better semantic reasoning, since the earlier nodes in the updated sequence belong to  ｓｏsome important semantic parts with higher confidence and their visual features may be more reliable for message passing.**
 ## Averaged Hidden States for Neighboring Nodes
-In adaptive updating scheme, when they want to update a specific node,some of its neighboring nodes have already been updated while others may have not. Thus, they use a visit flag qj to indicate whether the graph node vj has been updated, where qj is set as 1 if updated. They use the updated hidden states hj,t+1 for the visited nodes and the previous states hj,t for the unvisited nodes, and then compute the hidden states h i,t of node vi by  averaging the hidden states of neighboring nodes.
+In adaptive updating scheme, when they want to update a specific node,some of its neighboring nodes have already been updated while others may have not. Thus, they use a visit flag q<sub>j</sub> to indicate whether the graph node v<sub>j</sub> has been updated, where q<sub>j</sub> is set as 1 if updated. They use the updated hidden states h<sub>j,t+1</sub> for the visited nodes and the previous states h<sub>j,t</sub> for the unvisited nodes, and then compute the hidden states h<sub>i,t</sub> of node v<sub>i</sub> by  averaging the hidden states of neighboring nodes.
 
 
 ![alt text](https://github.com/Tommy-Liu/homework1/blob/master/equ1.PNG)
@@ -50,16 +48,16 @@ where the 1(·) is an indicator function and |Ng(i)| denote the number of neighb
 
 
 ## Adaptive Forget Gates
-Graph LSTM specifies different forget gates for different neighboring nodes. It results in the different influences of neighboring nodes on the updated memory states mi,t+1 and hidden states hi,t+1. The memory states of each neighboring node are also utilized to update the memory states mi,t+1 of the current node. The shared weight metrics U fn for all nodes are learned to guarantee the spatial transformation invariance and enable the learning with various neighbors. The Graph LSTM thus incorporates these adaptive forget gates to cover diverse visual patterns.
+Graph LSTM specifies different forget gates for different neighboring nodes. It results in the different influences of neighboring nodes on the updated memory states m<sub>i,t+1</sub> and hidden states h<sub>i,t+1</sub>. The memory states of each neighboring node are also utilized to update the memory states m<sub>i,t+1</sub> of the current node. The shared weight metrics U<sup>fn</sup> for all nodes are learned to guarantee the spatial transformation invariance and enable the learning with various neighbors. The Graph LSTM thus incorporates these adaptive forget gates to cover diverse visual patterns.
+
 ## Graph LSTM Unit
 The Graph LSTM consists of five gates: 
-the input gate g u, the forget gate g f, the adaptive forget gate g¯ f, the memory gate g c and the output gate g o. The Wu, Wf, Wc, Wo are the recurrent gate weight matrices specified for input features while Uu, Uf, Uc, Uo are those for hidden states of each node. Uun, Ufn, Ucn, Uon are the weight parameters specified for states of neighboring nodes. The hidden and memory states by the Graph LSTM can be updated as follows:
-
+the input gate g<sup>u</sup>, the forget gate g<sup>f</sup>, the adaptive forget gate g<sup>¯f</sup>, the memory gate g c and the output gate g o. The W<sup>u</sup>, W<sup>f</sup>, W<sup>c</sup>, W<sup>o</sup> are the recurrent gate weight matrices specified for input features while U<sup>u</sup>, U<sup>f</sup>, U<sup>c</sup>, U<sup>o</sup> are those for hidden states of each node. U<sup>un</sup>, U<sup>fn</sup>, U<sup>cn</sup>, U<sup>on</sup> are the weight parameters specified for states of neighboring nodes. The hidden and memory states by the Graph LSTM can be updated as follows:
 
 ![alt text](https://github.com/Tommy-Liu/homework1/blob/master/equ2.PNG)
 
 
-Here δ is the logistic sigmoid function, and ⊙ indicates a point-wise product. The memory states mi,t+1 of the node vi are updated by combining the memory states of visited nodes and those of unvisited nodes by using the adaptive forget gates.
+Here δ is the logistic sigmoid function, and ⊙ indicates a point-wise product. The memory states m<sub>i,t+1</sub> of the node v<sub>i</sub> are updated by combining the memory states of visited nodes and those of unvisited nodes by using the adaptive forget gates.
 
 # Experiments
 ## Datasets
@@ -191,7 +189,7 @@ With all the characteristics mentioned aboved, Graph LSTM provides a reliable st
 * The structure of Graph LSTM: 邱志堯、劉兆寧
 * Experiments: 曾守曜、劉兆寧
 * Discussion: 曾守曜、邱志堯、簡光宏
-* Publish report on github : 簡光宏、劉兆寧
+* Publish report on github : 簡光宏、劉兆寧、曾守曜
 
 # Reference
 
